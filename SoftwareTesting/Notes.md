@@ -18,6 +18,13 @@
     * Propagation: error 会导致一个错误的结果
 
 * Sources of Problems
+  * Requirements Definition
+  * Design
+  * Implementation
+  * Support Systems
+  * Communications
+  * Space Applications
+  * etc.
 
 * Most bugs are not because of mistakes in the code
   * 55% SPEC: Specification 产品说明书
@@ -25,8 +32,24 @@
   * 15% Code
   * 5% Other
 
+* Relative cost of bugs
+  * "bugs found later cost more to fix"
+  * Cost to fix a bug increases **exponentially**
+
 * What are tester goals?
-  * Verification: 是否满足计划 (build the product right)
+  * Verification: 是否满足计划 (SPEC, build the product right)
     * Process based
   * Validation: 是否满足用户的需求 (build the right product)
     * Product based
+
+* What is Testing?
+  * Testing is the process of executinga program with **the intent of finding errors**
+
+* **Specification**
+  * The features of the software
+  * The constraints on these features
+
+* SDLC
+  * Software Development Life Cycle 软件开发生命周期
+
+* Software testing **axioms**
