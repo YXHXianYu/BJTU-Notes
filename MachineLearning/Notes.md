@@ -1,4 +1,4 @@
-# Machine Learning
+# cMachine Learning
 
 > 吴雨婷
 >
@@ -171,4 +171,70 @@
     * 方差 Variance
     * 偏差 Bias
     * ![偏差和方差](./Notes/23.9.11.4.png)
+    * 偏差：算法本身的拟合能力
+    * 方差：数据扰动所造成的影响
+    * 噪声：学习问题本身的难度（任务本身、数据集本身）
+    * 期望泛化误差 $E(f;D) = E_D[(f(x;D)-\bar{f}(x))^2] + (\bar{f}(x)-y)^2+E_D[(y_D-y)^2]$
+      * 即 $E(f;D)=bias^2(x)+var(x)+\epsilon^2$
+    * 偏差-方差窘境
+      * 训练初期，拟合能力不强，偏差主导泛化错误率
+      * 训练加深，拟合能力增强，方差主导泛化错误率
+      * 训练充足，拟合能力非常强，若训练数据自身的、非全局的特性被学到，则会发生过拟合
 
+***
+
+## 2. 线性模型
+
+### 2.1 线性回归
+
+#### 2.1.1 线性回归
+
+* 回归的概念
+  * 回归：连续
+  * 分类：离散
+* 线性回归
+  * 一种通过属性的 **线性组合** 来进行预测的 **线性模型**
+  * 一般形式：$f(x) = w_1x_1+w_2x_2+...+w_dx_d+b$
+  * 向量形式：$f(x)=w^Tx+b$
+    * $x = (x_1;x_2;...;x_d)$
+    * 若向量的划分符号为 $;$ 则表示列向量
+  * 最小二乘法：基于均方误差最小化
+    * 均方误差：$J(w, b) = \sum_{i=1}^{m}(y^{(i)}-wx^{(i)}-b)^2$
+    * 目标：$argmin_{(w,b)} \ J(w, b)$
+    * 机器学习凸函数定义：$f(x_1+x_2)  \leq f(x_1) + f(x_2)$
+    * 根据 $\Large\frac{\partial J(w, b)}{b}\normalsize = 0$，得到 $b = \bar{y} - w \bar{x}$
+    * 根据 $\Large \frac {\partial J(w, b)}{\partial w} \normalsize = 0$，得到 $w = \Large \frac{\sum_{i=1}^{m} (x^{(i)}-\bar{x})(y^{(i)}-\bar{y}) }{ \sum_{i=1}^{m}(x^{(i)}-\bar{x})^2 }$
+    * 【作业：证明最小二乘法】
+  * 000000：基于残差平方和最小化
+    * 残差平方和：$J(w) = \frac{1}{2} \sum_{i=1}^{m} (h(x^{(i)})-y^{(i)})^2$
+* 度量误差
+  * 损失函数 Loss Function：单样本预测的错误
+  * 代价函数 Cost Function：全部样本集的平均误差
+  * 目标函数 Object Function：最终需要优化的函数
+* 广义线性模型
+  * 一般形式：$y=g^{-1}(w^Tx+b)$
+  * 当 $g(·)=ln(·)$ 时，为对数线性回归
+
+#### 2.1.2 梯度下降
+
+* 梯度下降的三种形式
+  * 批量梯度下降（Batch Gradient Descent, BGD）
+    * 梯度下降的每一步，都用到了 **所有** 的训练样本
+    * $w_j := w_j - \alpha \frac{1}{m} \sum_{i=1}^{m} ((h(x^{(i)})-y^{(i)})· x_j^{(i)})$
+    * $\sum$ 内部的项，即为 **梯度**，即 $\Large\frac{\partial \ J(w)}{\partial \ w_j}$
+    * 优点：考虑所有样本；缺点：太慢
+  * 随机梯度下降（Stochastic Gradient Descent, SGD）
+    * 梯度下降的每一步，随机一个样本训练
+    * $w_j := w_j - \alpha \Large \frac{\partial \ J(w)}{\partial \ w_j}$
+  * 小批量梯度下降（Mini-Batch Gradient Descent, MBGD）
+    * 梯度下降的每一步，用到了 **一定批量** 的训练样本
+* 梯度下降 和 最小二乘法
+  * 梯度下降 需要超参 **学习率$\alpha$**
+  * 最小二乘法，需要矩阵求逆
+* 数据归一化/标准化
+  * 归一化
+    * $x^* = \Large \frac {x - x_{min}} {x_{max} - x_{min}}$
+  * Z-Score标准化
+    * $x^* = \Large \frac  {x - \mu} {\sigma} $
+* 过拟合/欠拟合
+  * 
