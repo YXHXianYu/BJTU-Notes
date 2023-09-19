@@ -25,7 +25,7 @@
 
 * Protocol layers
   * main structuring method used to divide up netowrk funcitonality
-  * each protocol at different layerse serves a different purpose
+  * each protocol at different layers serves a different purpose
 
 * wireless vs mobile
 
@@ -63,7 +63,7 @@
   * OSI Reference Model
     * 7 Levels
       1. Physical     : sends bits as signal
-      2. Data link    : sends frames (todo)
+      2. Data-Link    : sends frames 
       3. Network
       4. Transport
       5. Session
@@ -71,21 +71,75 @@
       7. Application
   * TCP/IP Reference Model
     * 5 Levels
-      1. Physical
-        * Bit (0 or 1)
-      2. Link
-        * Frame (1010100101)
-      3. Network
-        * Packet
-      4. Transport
-        * Segment
-      5. Application
-        * Message
+      1. Physical: Bit (0 or 1)
+      2. Data-Link: Datagram / Frame 【Datagram和Frame有什么区别】
+      3. Network: Packet
+      4. Transport: Segment
+      5. Application: Message
     * 信息来自应用层，并往下传递，每传递一层，会多一个**Header**
     * Router 会处理 physical, link, network
     * Switch 只处理 physical, link
     * 例，浏览器每个层使用的协议为: HTTP, TCP, IP, 802.11
-      * 802.11 是 Wifi 的协议
-      * 802.3 是 以太网(Ethernet) 的协议
+      * 802.11: Wifi Protocol
+      * 802.3 : Ethernet Protocol
     * 不同层有不同的协议，每个协议都有自己的Header格式
     * 一条信息，发送和接收使用的协议必须相同
+
+* Hops
+  * Jump from one router to another router, called a **hop**
+
+* Time to Live (TTL)
+  * The times that a message pack could jump
+
+* Service provided by a layer
+  * **Connection-oriented**
+    * 建立一个持续连接，来传递信息
+    * 如果连接中断了，就必须重新建立连接
+    * 可以保证信息的顺序
+    * 特征
+      * Reliable message stream
+      * Reliable byte stream
+      * Unreliable connection
+    * e.g. TCP
+  * **Connectionless**
+    * 不保证信息的顺序
+    * 特征
+      * Unreliable datagram
+      * Acknowledged datagram
+      * Request-reply
+    * e.g. UDP
+
+## 2. Physical and Data Link Layer
+
+* Modem 调制解调器(猫)
+  * modulation: 将光信号转换为电信号
+
+* 物理延迟计算
+  * Rate   : R (in bits per second)
+  * Delay  : D (in seconds)
+  * Message: M
+  * Latency: L = M / R + D;
+    * Transmission delay: M / R
+    * Propagation delay: D
+  * Speed of signal: 2/3*c = 2e8 m/s
+  * 简单计算题：给出M,R,D,求L,易错点是单位换算
+  * 这里的计算，只考虑物理延迟，不考虑软件延迟等
+  * A long link or a slow rate means **high latency**
+
+* Wires
+  * Twisted Pair
+    * Full-duplex link 全双工
+      * **both directions**
+    * Half-duplex link 半双工
+      * both directions but **not same time**
+    * Simplex link 单工
+      * **single direction**
+  * Fiber
+    * Common for high rates and long distances
+    * Too expensive
+  * 为什么Twisted Pair不能传输过远的信息
+    * 速度慢，信息丢失
+
+* Wireless
+  * Radio
+  * Microwave
