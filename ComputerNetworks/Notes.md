@@ -1,6 +1,8 @@
 # Computer Networks
 
 > 车啸平
+>
+> xpche@bjtu.edu.cn
 
 * 考核
   * 5% Class Practice
@@ -72,8 +74,9 @@
   * TCP/IP Reference Model
     * 5 Levels
       1. Physical: Bit (0 or 1)
-      2. Data-Link: Datagram / Frame 【Datagram和Frame有什么区别】
-      3. Network: Packet
+      2. Data-Link:  Frame 
+      3. Network: Datagram / Packet
+        * 【Datagram和Packet的区别是connection的区别吗】
       4. Transport: Segment
       5. Application: Message
     * 信息来自应用层，并往下传递，每传递一层，会多一个**Header**
@@ -113,7 +116,6 @@
 
 * Modem 调制解调器(猫)
   * modulation: 将光信号转换为电信号
-
 * 物理延迟计算
   * Rate   : R (in bits per second)
   * Delay  : D (in seconds)
@@ -125,7 +127,6 @@
   * 简单计算题：给出M,R,D,求L,易错点是单位换算
   * 这里的计算，只考虑物理延迟，不考虑软件延迟等
   * A long link or a slow rate means **high latency**
-
 * Wires
   * Twisted Pair
     * Full-duplex link 全双工
@@ -139,7 +140,27 @@
     * Too expensive
   * 为什么Twisted Pair不能传输过远的信息
     * 速度慢，信息丢失
-
 * Wireless
   * Radio
-  * Microwave
+  * Microwave: LANs and 3G/4G/5G
+  * Difference between 2.4G and 5G
+  * EMP原理
+* Fourier Transform
+* 【如何产生强烈信号以阻断信号】
+* Four different **line codes**
+  * ![image-20230922114607901](./Notes/image-20230922114607901.png)
+  * NRZ
+  * NRZI：变化代表1，不变代表0
+  * Manchester：变化的类型表示0或1
+  * AMI
+* FDM（Frequency Division Multiplexing）
+  * 概念：不同频率表示不同频道
+  * 效率低，频道会被占用
+* TDM（Time Division Multiplexing）
+  * 概念：按时间切片，比如每5分钟轮换到下一个人发信号
+* CDMA（Code Division Multiple Access）
+  * 通过正交的Codes来在同时同频率来表示不同人发送的信息
+* 【5G有用5G频率吗】
+* OFDM（Orthogonal FDM）
+  * 加入了新的一个维度：Power
+* 【5G用了什么新维度】
