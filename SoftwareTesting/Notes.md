@@ -45,6 +45,8 @@
 * What is Testing?
   * Testing is the process of executinga program with **the intent of finding errors**
 
+## 2. Principle of Testing
+
 * **Specification**
   * The features of the software
   * The constraints on these features
@@ -53,3 +55,23 @@
   * Software Development Life Cycle 软件开发生命周期
 
 * Software testing **axioms**
+  1. It is impossible to test a program completely.
+  2. Software testing is a risk-based exercise.
+  3. Testing cannot show the absence of bugs.
+  4. The more bugs you find, the more bugs there are.
+  5. Not all bugs found will be fixed.
+  6. It is difficult to say when a bug is indeed a bug.
+  7. Specifications are never final.
+  8. Software testers are not the most popular members of a project.
+  9. Software testing is a disciplined and technical profession.
+
+* Testing the **Specification**
+
+* Black-box Testing
+  * **Functional Testing** or **Behavioral Testing**
+* White-box Testing
+  * **Glass Box Testing** or **Clear Box Testing** or **Structural Testing**
+* Static Testing
+  * 不执行代码
+* Dymanic Testing
+  * 执行代码
