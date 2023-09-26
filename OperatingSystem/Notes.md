@@ -218,12 +218,16 @@
 
 ## 3. Processes
 
-*【任务管理器，设置进程的优先级】
+* 【任务管理器，设置进程的优先级】
+
   * win11在"详细信息"中可以设置
 
 ### 3.1 Process Concept
 
 * **Process** is a **program** in execution
+  * program: passive, static, permanence
+
+  * process: active, dynamic, temporary
 
 * Process Structure in Memory
   * 栈: 局部
@@ -231,7 +235,6 @@
   * 数据段: 静态、全局
   * 代码段: 代码
   * ![image-20230919154706457](./Notes/image-20230919154706457.png)
-
 * Process State
   * **new**
   * **running**
@@ -240,11 +243,12 @@
   * **terminated**
   * 上下文切换：切换进程状态
   * ![image-20230919155241178](./Notes/image-20230919155241178.png)
-  
 * Process Control Block (PCB)
   * **Information** associated with **each** process
     * Identifier
     * Process state
+    * CPU scheduling information (e.g., priority)
+    * Program counter: **next** instruction to be executed
     * etc.
   * 在切换进程时，进行的 **上下文切换**，这里切换的就是 **PCB**
     * ![image-20230919155707783](./Notes/image-20230919155707783.png)
@@ -252,12 +256,136 @@
 ### 3.2 Process Scheduling
 
 * Process可以被如下描述
+  * CPU执行一段时间，然后等待IO，再重复
   * I/O-bound process
   * CPU-bound process
-
 * Process Scheduling Queues
-  * Job queue
-  * Ready queue
-  * Device queue
-
+  * Job queue: all processes
+  * Ready queue: ready and waiting processes
+  * Device queue: waiting for I/O devices
 * Scheduler 调度器
+  * Long-term scheduler (or job/admission scheduler)
+    * 频率：比较低，约几分钟一次
+    * 功能：从外部存储器上选择进程，并把进程放到内存及ready queue里
+  * Short-term scheduler (or CPU scheduler)
+    * 频率：比较高，约100ms一次
+    * 功能：从ready queue中选择进程，分配cpu资源执行
+      * （进程执行结束，自动terminated或者回到ready queue）
+    * 要求执行速度很快，否则每调度一次，都会花费cpu资源
+  * Medium-term scheduler (Swapping 交换)
+    * 功能
+      * swap out：将一些内存中的进程挪到外部存储器中（虚拟内存）
+      * swap out：逆操作
+    * 作用：解决内存不足的问题
+  * ![image-20230926143443215](./Notes/image-20230926143443215.png)
+    * Admission scheduler <=> Long-term scheduler
+    * CPU scheduler <=> Short-term scheduler
+    * Memory scheduler <=> Medium-term scheduler
+* 上下文切换
+  * CPU从一个PCB切换为另一个PCB
+  * 上下文切换的过程中，CPU会处于空闲状态，所以上下文切换实际上会消耗CPU资源
+
+### 3.3 Operations on Processes
+
+* 进程管理的五种基本操作
+  * Creation and Deletion
+  * Suspension and Resumption
+  * Synchronization
+  * Communication
+  * Deadlock Handling
+* 进程树
+  * 在UNIX系的OS中，进程有一个树形结构
+  * Resource sharing：可以设置，子进程能够使用多少父进程的资源
+  * Execution：可以设置，父进程是否需要等待子进程执行完毕再执行
+  * `UNIX fork()` 系统调用
+    * `fork()` 可以创建一个新的进程
+* Process Termination
+  * 退出的条件
+    * Normal exit (voluntary)
+    * Error exit (voluntary)
+    * Fatal error (involuntary)
+    * Killed by another process (involuntary)
+  * `Bool CreateProcessA()`
+    * win32api中，创建进程的接口
+  * `UNIX wait() and waitpid()`
+    * `wait()` 会等待目前所有子进程结束完毕，再继续执行
+    * `waitpid()` 会等待目标进程执行完毕，再继续执行
+  * `BOOL TerminatedProcess(HANDLE ....)`
+
+### 3.4 Inter-process Communication
+
+* IPC
+
+  * 实现进程间的 **通讯** 及操作的 **同步**
+* IPC的方式
+
+  * Shared memory
+    * low-overhead
+    * more convenient
+    * more difficult to implement in the OS
+  * Message passing
+    * 适用于小数据交换
+    * high-overhead：每次通信都需要系统调用
+    * simple to implement in the OS
+  * etc.
+* Producer-Comsumer Problem
+  * two type of buffer
+    * unbounded-buffer
+      * producer: no wait
+      * comsumer: wait when buffer is empty
+    * bounded-buffer
+      * producer: wait when buffer is wait
+      * comsumer: wait when buffer is empty
+  * Bounded-Buffer: **Shared-Memory** Solution
+    * 通过 `in`, `out`, `BUFFER_SIZE` 来管理
+* **Message system**
+  * two operations
+    * `send(message)`
+    * `receive(message)`
+  * **Direct** Communication
+    * 每次发送和接受时，需要指定目标进程
+    * `send(P, message)`
+    * `receive(Q, message)`
+  * **Indirect** Communication
+    * 消息通过 **mailboxes (ports)** 发送
+    * `send(A, message)`：往 mailbox A 发送消息
+    * `receive(A, message)`：从 mailbox A 接受消息
+    * 进程之间可以建立链接，链接可以是单向的，也可以是双向的
+* **Synchronization**
+  * **Blocking 阻塞** is consider **Synchronous 同步**
+    * Blocking send：发送者发送信息后，在收到信息前，什么都不能做
+    * Blocking receive：接受者接受信息前，什么都不能做
+  * **Non-blocking** is considered **Asynchronous 异步**
+    * Non-blocking send
+    * Non-blocking receive
+
+### 3.5 Communication in Client-Server Systems
+
+* Sockets	
+  * Socket = ip address + port
+* Remote Procedure Calls
+  * 功能：调用一个服务器上的程序
+  * 过程：先封装一个 **Client Stub**，再将其发给服务器，服务器收到后解包，执行结束后，再把结果发回客户端
+
+### 3.6 Summary
+
+* Process Concept
+  * Process vs. Program
+* Process States
+  * 进程变化条件及图
+  * PCB
+* Process Operations
+* Multi Processes Run concurrencily
+  * Process Schedule
+  * Process Communication
+    * IPC
+      * Shared Memory
+      * Message System
+        * Direct, Indirect, blocking and non-blocking
+  * Process Synchronization
+  * Deadlock Handling
+
+## 4. Threads
+
+* Example: MP3 Player
+
