@@ -50,6 +50,7 @@
 * **Specification**
   * The features of the software
   * The constraints on these features
+  * **What** will be done
 
 * SDLC
   * Software Development Life Cycle 软件开发生命周期
@@ -75,3 +76,42 @@
   * 不执行代码
 * Dymanic Testing
   * 执行代码
+
+* Specification Checklist
+  * Completeness
+  * Accuracy
+  * Precision
+  * Consistency
+  * Relevance
+  * Feasibility
+  * Code/Design-free (不写代码)
+  * Testability
+
+
+## Week 4
+
+* Specification 产品说明书
+  * what a specificaiton increases
+
+## Week 5 Black Box Testing
+
+* 黑盒测试的别名: functional testing, behavioral testing
+
+* Test Data & Test Case
+  * Test Data: only input
+  * Test Case: input and predict output
+
+* Test-to-pass & Test-to-fail
+  * test-to-pass: 需要通过的测试样例
+  * test-to-fail: sole purpose of breaking the software
+
+* Methods of Testing
+  * Random Testing (RT)
+  * Adaptive Random Testing (ART)
+  * FSCS-ART
+  * Anti-Random Testing
+
+* Equivalence Partitioning
+  * valid data
+  * boundary data
+  * invalid data
