@@ -107,7 +107,7 @@
 
 * Methods of Testing
   * Random Testing (RT)
-  * Adaptive Random Testing (ART)
+  * Adaptive Random  Testing (ART)
   * FSCS-ART
   * Anti-Random Testing
 
