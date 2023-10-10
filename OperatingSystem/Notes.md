@@ -388,8 +388,91 @@
 ## 4. Threads
 
 * Example: MP3 Player
-
 * 我们有了进程，为什么还需要线程
   * 减少进程间通信的开销
   * 【还有吗】
+* 多线程的资源
+  * 多线程共享：code、data、files、heap等
+  * 多线程独立：register、stack
+
+* 例子：多线程服务器
+* 多线程编程的优势
+  * Responsiveness（不会被阻塞）
+  * Resource sharing
+  * Economy（创建销毁 和 切换 都比进程更快）
+  * Utilization of multiprocessor architecture
+
+* Thread vd Process
+* Types of Threads
+  * User-level threads
+  * Kernel-supported threads
+
+* Multithreading Models
+  * Many-to-One
+    * 许多user-level thread对应一个kernel thread
+    * 一个thread调用system call时，会阻塞整个process
+
+  * One-to-One
+    * 每个user-level thread对应一个kernel thread
+    * 开销大
+
+  * Many-to-Many
+  * Two-level Model
+    * 同时支持Many-to-Many和One-to-One
+
+* Thread Libraries
+  * 三个主要库
+    * POSIX Pthreads
+    * Win32 threads
+    * Java threads
+
+* Threading Issues
+  * 创建和销毁线程需要时间
+  * 对线程数量不作限制，会爆炸
+  * 提出概念：线程池
+
+* 总结
+* Homework
+  * 使用thread api写一个打印素数的问题
+
+
+## 5. CPU Scheduling
+
+* CPU Scheduler
+  * 发生在
+    * running to waiting（**nonpreemptive**）
+    * running to ready（**preemptive**）
+    * waiting to ready（**preemptive**）
+    * running to terminated（**nonpreemptive**）
+* Dispatcher
+  * Dispatcher Latency：暂停进程和启动另一个进程的耗时
+* Scheduling Criteria 调度准则
+  * 目标
+    * Minimize Response Time 最小化响应时间
+    * Maximize Throughput 最大化吞吐率（单位时间内结束的进程数量）
+    * Fairness 公平性（多个用户平等地共享CPU）
+  * CPU utilization
+  * Turnaround time 周转时间
+    * submission ~ completion
+  * Waiting time
+    * total waiting time in the ready queue
+* Scheduling Algorithms
+  * First-Come-First-Served (FCFS) Scheduling
+    * 特性
+      * Simplest (+)
+      * non-preemtive
+      * long average waiting time(-)
+      * 对 **short jobs** 不太好
+  * Round-Robin (RR) Scheduling 轮询调度
+    * 每个进程分到10~100ms
+    * 特性
+      * 适合短任务
+      * 长任务需要更长时间完成（切换无数次）
+    * ![image-20231010155635733](./Notes/image-20231010155635733.png)
+  * Shortest-Job-First (SJF) Scheduling
+  * Shortest-Remaining-Time-First (SRTF) Scheduling
+    * SJF的允许被抢占版
+  * Priority Scheduling
+  * Multilevel Queue Scheduling
+  * Multilevel Feedback Queue Scheduling
 
