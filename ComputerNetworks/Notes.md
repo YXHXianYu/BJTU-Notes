@@ -160,7 +160,55 @@
   * 概念：按时间切片，比如每5分钟轮换到下一个人发信号
 * CDMA（Code Division Multiple Access）
   * 通过正交的Codes来在同时同频率来表示不同人发送的信息
-* 【5G有用5G频率吗】
 * OFDM（Orthogonal FDM）
   * 加入了新的一个维度：Power
 * 【5G用了什么新维度】
+
+### 2.2 Data Link Layer
+
+#### 2.3.1 Connectionless
+
+* Types of possible services
+  * **Unacknowledged connectionless** service
+  * **Acknowledge connectionless** service
+  * Acknowledge connection-oriented service
+    * 在Data Link层非常少见
+* 问题一：**如何定位信息的开头和结尾**
+* 三种方法 Frame Methods
+  * Byte count
+  * Flag bytes with byte stuffing
+  * Flag bits with bit stuffing
+* **Byte Count**
+  * 一个Frame的首位记录这个Frame的长度（包含首位）
+  * 问题：无法纠错，并且会导致之后的信息都是错误的
+  * **Extra bit**：1 Byte
+* **Byte Stuffing**
+  * 使用Flag来标记Frame的开头和结束
+    * 形如：Flag|Information|Flag
+    * Flag通常只占一个Byte
+  * 使用Escape Byte来表示后一个Byte表示原信息
+  * **Extra bit**：2 + ? Bytes
+* **Bit Stuffing**
+  * 使用连续的6个1来表示flag
+  * 原始信息中，5个1多加一个0
+  * **Extra bit**：2 + ? Bytes
+* 问题二：如何定位错误
+* Error Control
+  * Error detection codes
+    * **Parity**
+    * **Checksums**
+    * **Cyclic Redundancy Codes** (CRC)
+  * Error correction codes
+    * **Hamming Codes**
+* **Copy**
+  * **Extra bit**：n Bytes
+* **Parity**
+  * **Extra bit**：1 bit
+* **Checksums** 校验和
+  * 把多个字节拼在一起，算出和，若溢出则继续加，最后将位翻转
+* **Cyclic Redundancy Codes**
+  * 设置一个Generator（例如10011），然后在原数据末尾补上Generator位数-1个0，用异或除法去除原数据，得到余数，再把余数加在原数据后
+  * **Extra bit**：Genrator位数-1 bit
+    * 所以通常的32-bit CRC的Generator有33位
+  * 如何得到Generator？
+    * 规定的
