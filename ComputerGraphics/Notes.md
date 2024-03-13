@@ -49,9 +49,9 @@
 ### 2.1 View T.
 
 * Definition of Camera
-  * position
-  * gaze
-  * up
+  * position: e
+  * gaze: g
+  * up: t
 * How to get View T.
   1. Translate e to origin
   2. rotates g to -Z
@@ -63,5 +63,17 @@
 * Orthographic Projection
   * 根据L、R、B、T、N、F六个值，得到Orthographic P.T.
 * Perspective Projection
-  * 
+  * 推导
+    * 根据：
+      * frustum压缩成cuboid之后，x和y平行
+      * 近平面中心点坐标不变
+      * 远平面中心点坐标不变
+    * 结论
+      * ...
+  * 压缩时，frustum中每个点会向远平面移动
+  * 【如果把projection矩阵的约定改了，那么会发生什么？比如约定左下角坐标不变】
+
+## 3. Devices
+
+
 
