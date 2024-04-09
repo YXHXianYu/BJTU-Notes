@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Emoji</title>
+		<style>
+			* {
+        box-sizing: border-box;
+      }
+      body {
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .emoji {
+        margin: 0 10px;
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: #ffda6a;
+        z-index: -2;
+      }
+      .face{
+        position: relative;
+        width: inherit;
+        height: inherit;
+      }
+
+      .eye {
+        position: absolute;
+        left: 22px;
+        top: 29%;
+        width: 32px;
+        height: 6px;
+        border-radius: 5px;
+        background-color: brown;
+      }
+
+
+      .eye:last-child {
+        left: auto;
+        right: 22px;
+      }
+
+      .eye::after{
+        position: absolute;
+        content: '';
+        width: 100%;
+        height: 10px;
+        top: 3px;
+        border-radius:0 0 50% 50% / 0 0 100% 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        animation: emm 2s linear infinite;
+      }
+
+      .nose{
+        position: absolute;
+        top: 30%;
+        left: 48px;
+        width: 6px;
+        height: 30px;
+        background-color: brown;
+        border-radius: 5px;
+      }
+      .nose::after{
+        position: absolute;
+        content: '';
+        top: 24px;
+        width: 15px;
+        height: 6px;
+        background-color: brown;
+        border-radius: 5px;
+
+      }
+
+      .mouth {
+        position: absolute;
+        top: 65%;
+        left: 50px;
+        width: 20px;
+        height: 6px;
+        border-radius: 5px;
+        background-color: brown;
+      }
+      .mouth::after{
+        position: absolute;
+        content: '';
+        width: 46px;
+        height: 46px;
+        top: calc(50% - 15px);
+        left: calc(50% - 23px);
+        border-radius:50%;
+        background-color: rgba(0, 0, 0, 0.5);
+        animation: emm 2s linear infinite;
+        /* : emm 1s linear infinite; */
+      }
+
+      @keyframes emm {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+		</style>
+	</head>
+	<body>
+		<div class="emoji emoji--emm">
+			<div class="face">
+				<div class="eyes">
+					<div class="eye"></div>
+					<div class="eye"></div>
+				</div>
+				<div class="nose"></div>
+				<div class="mouth"></div>
+			</div>
+		</div>
+	</body>
+</html>

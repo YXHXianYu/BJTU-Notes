@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+    <style>
+      .parent {
+        display: flex;
+        width: 200px;
+        height: 200px;
+        background: #eee;
+        margin-bottom: 10px;
+      }
+
+      .child {
+        width: 50px;
+        height: 50px;
+      }
+
+      .parent-1 {
+        flex-direction: row;
+      }
+
+      .parent-2 {
+        flex-direction: column;
+      }
+
+      .parent-3 {
+        flex-wrap: nowrap;
+      }
+
+      .parent-4 {
+        flex-wrap: wrap;
+        align-content: start;
+
+        flex-flow: row wrap;
+      }
+
+      .child-1 {
+        background-color: #b46868;
+      }
+      .child-2 {
+        background-color: #68b47c;
+      }
+      .child-3 {
+        background-color: #8368b4;
+      }
+      .child-4 {
+        background-color: #2c5bb1;
+      }
+      .child-5 {
+        background-color: #892971;
+      }
+
+
+    </style>
+  </h>
+  <body>
+
+    <div class="parent parent-1">  
+      <div class="child child-1">1</div>
+      <div class="child child-2">2</div>
+      <div class="child child-3">3</div>
+    </div>
+
+    <div class="parent parent-2">  
+      <div class="child child-1">1</div>
+      <div class="child child-2">2</div>
+      <div class="child child-3">3</div>
+    </div>
+
+    <div class="parent parent-3">  
+      <div class="child child-1">1</div>
+      <div class="child child-2">2</div>
+      <div class="child child-3">3</div>
+      <div class="child child-4">4</div>
+      <div class="child child-5">5</div>
+    </div>
+
+    <div class="parent parent-4">  
+      <div class="child child-1">1</div>
+      <div class="child child-2">2</div>
+      <div class="child child-3">3</div>
+      <div class="child child-4">4</div>
+      <div class="child child-5">5</div>
+    </div>
+    
+  </body>
+</html>

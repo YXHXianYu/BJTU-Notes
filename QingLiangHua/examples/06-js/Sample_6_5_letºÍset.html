@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>标题</title>
+  </head>
+  <body>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+    <p id="demo4"></p>
+    <p id="demo5"></p>
+    <p id="demo6"></p>
+
+    <script>
+      { 
+        var x1 = 2; 
+      }
+      // 这里可以使用 x1 变量
+      document.getElementById("demo1").innerHTML = "x1的值为：" + x1;
+
+
+      { 
+        let x2 = 2;
+      }
+      // 这里不能使用 x2 变量
+      try {
+        document.getElementById("demo2").innerHTML = "x2的值为：" + x2;
+      } catch (error) {
+        document.getElementById("demo2").innerHTML = "出错了：" + error.message;
+      }
+
+
+      var x3 = 10;
+      // 这里输出 x3 为 10
+      { 
+        var x3 = 2;
+        // 这里输出 x3 为 2
+      }
+      // 这里输出 x3 为 2
+      document.getElementById("demo3").innerHTML = "x3的值为：" + x3;
+
+
+      var x4 = 10;
+      // 这里输出 x4 为 10
+      { 
+        let x4 = 2;
+        // 这里输出 x4 为 2
+      }
+      // 这里输出 x4 为 10
+      document.getElementById("demo4").innerHTML = "x4的值为：" + x4;
+
+
+      var i1 = 5;
+      for (var i1 = 0; i1 < 10; i1++) {
+          // 一些代码...
+      }
+      document.getElementById("demo5").innerHTML = "i1的值为：" + i1;
+      // 这里输出 i 为 10
+
+      var i2 = 5;
+      for (let i2 = 0; i2 < 10; i2++) {
+          // 一些代码...
+      }
+      document.getElementById("demo6").innerHTML = "i2的值为：" + i2;
+      // 这里输出 i2 为 10
+
+
+    </script>
+  </body>
+</html>
+
+

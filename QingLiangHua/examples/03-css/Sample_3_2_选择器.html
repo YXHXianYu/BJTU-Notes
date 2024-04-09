@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+    <style>
+      /* 标签选择器 */
+      h1 { 
+        color: red;
+      }
+      /* 类选择器 */
+      .p1 { 
+        color: orange;
+      }
+      /* id选择器 */
+      #p2 { 
+        color: green;
+      }
+
+      /* 属性选择器 */
+      a[title="hello"] { 
+        color: green;
+      }
+
+      /* 组合使用 */
+      p.p3 { 
+        color: blue;
+      }
+
+      /* 后代选择器 */
+      .d1 p { 
+        color: orange;
+      }
+
+      /* 子选择器 */
+      .d3 > p { 
+        color: red;
+      }
+
+      /* 相邻兄弟选择器 */
+      .d5 + p { 
+        color: green;
+      }
+
+      /* 通用兄弟选择器 */
+      .d6 ~ p { 
+        color: red;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>h1元素</h1>
+      <p class="p1">class="p1"的p元素</p>
+      <p id="p2">id="p2"的p元素</p>
+      <a title="hello">title="hello"的a元素</a>
+      <p class="p3">class="p3"的p元素</p>
+      <b class="p3">class="p3"的b元素<span>(为啥是黑色而不是蓝色？)</span></b>
+      
+      <div class="d1">
+        <p>在div.d1下的p元素<span>(为啥是橙色了？)</span></p>
+        <div class="d2">
+          <p>在div.d1下的div.d2下的p元素</p>
+        </div>
+      </div>
+      <div class="d3">
+        <p>在div.d3下的p元素</p>
+        <div class="d4">
+          <p>在div.d3下的div.d4下的p元素<span>(为啥不是红色了？)</span></p>
+        </div>
+      </div>
+
+      <div>
+        <div class="d5">div.d5</div>
+        <p>紧随div.d5之后的p元素</p>
+      </div>
+
+      <div>
+        <div class="d6">div.d6</div>
+        <p>紧随div.d6之后的p元素</p>
+        <div class="d7">div.d7</div>
+        <p>在div.d6挺远之后的p元素</p>
+      </div>
+
+    </div>
+  </body>
+</html>

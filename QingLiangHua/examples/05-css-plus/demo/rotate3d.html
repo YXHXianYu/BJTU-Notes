@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./rotate3d.css" />
+  <title>CSS Transform 3d demo - Rotate3d</title>
+
+  <style>
+    .card {
+      transform: rotate3d(1, 1, 0, 0deg);
+      transition: transform 2s;
+    }
+    .card:hover {
+      /* 从原点到(1, 1)的直线作为轴，旋转180度 */
+      transform: rotate3d(1, 1, 0, 180deg);
+    }
+  </style>
+
+</head>
+<body>
+  <h1>rotate3d</h1>
+  <p>当光标悬停在卡片上时，它会沿对角线翻转</p>
+  <pre class="code">
+    <code>
+      .card {
+        transform: rotate3d(1, 1, 0, 0deg);
+        transition: transform 2s;
+      }
+      .card:hover {
+        /* 从原点到(1, 1)的直线作为轴，旋转180度 */
+        transform: rotate3d(1, 1, 0, 180deg);
+      }        
+    </code>
+  </pre>
+  <div class="stage">
+    <div class="card">
+      <img src="https://picsum.photos/seed/1/300/150">
+      <h2 class="title">图片标题</h2>
+      <div class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...
+      </div>
+    </div>
+  </div>
+</body>
+</html>

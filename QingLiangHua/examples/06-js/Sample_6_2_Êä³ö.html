@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+  </head>
+  <body>
+    <h1>我的 Web 页面</h1>
+    <p id="demo1">一个段落</p>
+    <p id="demo2">又一个段落</p>
+    <ul>
+      <li>window.alert()输出 <button type="button" onclick="myFunction1()">点我</button></li>
+      <li>document.write()输出 <button type="button" onclick="myFunction2()">点我</button></li>
+      <li>innerHTML 输出 <button type="button" onclick="myFunction3()">点我</button></li>
+      <li>console.log()输出 <button type="button" onclick="myFunction4()">点我</button></li>
+    </ul>
+    <script>
+      function myFunction1()
+      {
+        window.alert("输出内容");
+      }
+      function myFunction2()
+      {
+        document.write("输出内容");
+      }
+
+      function myFunction3()
+      {
+        document.getElementById("demo1").innerHTML = "输出内容";
+      }
+
+      function myFunction4()
+      {
+        console.log("输出内容");
+      }
+
+    </script>
+  </body>
+</html>

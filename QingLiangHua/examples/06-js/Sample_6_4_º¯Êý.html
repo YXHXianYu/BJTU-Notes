@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>测试实例</title>
+  </head>
+
+  <body>
+    <button onclick="myFunction1()">普通函数调用</button>
+
+    <p>点击这个按钮，来调用带参数的函数。</p>
+    <button onclick="myFunction2('Harry Potter','Wizard')">
+      带参数的函数调用
+    </button>
+
+    <p>本例调用的函数会执行一个计算，然后返回结果：</p>
+    <button onclick="alert(myFunction3(4, 3))">
+      函数调用返回值
+    </button>
+
+    <script>
+      function myFunction1() {
+        alert("Hello World!");
+      }
+      function myFunction2(name, job) {
+        alert("Welcome " + name + ", the " + job);
+      }
+
+      function myFunction3(a, b) {
+        return a * b;
+      }
+    </script>
+  </body>
+</html>

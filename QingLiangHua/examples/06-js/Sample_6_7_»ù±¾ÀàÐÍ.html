@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>标题</title>
+  </head>
+  <body>
+    <script>
+      var carname = "Volvo XC60";
+      var carname = 'Volvo XC60';
+      var character = carname[7];
+      console.log(character)
+      // character 为"C"
+
+      var x = 'It\'s alright';
+      var y = "He is called \"Johnny\" \' \" \n \r";
+      console.log(x);
+      console.log(y)
+
+
+      const multiLineText = `
+        This is
+        a multi-line
+        text.
+      `;
+      console.log(multiLineText);
+
+
+      const name = 'JS';
+      const age = 30;
+      const message1 = "My name is " + name + " and I'm " + (age+1)+ " years old.";
+      const message2 = `My name is ${name} and I'm ${age+1} years old.`;
+      console.log(message1);
+      console.log(message2);
+
+
+      var s = "Hello, world";
+      s.toUpperCase(); // 返回'HELLO, WORLD'
+      console.log("s.toUpperCase():" +s.toUpperCase());
+      
+      s.toLowerCase(); // 返回'hello, world'
+      console.log("s.toLowerCase():" + s.toLowerCase());
+
+      s.indexOf('world'); // 返回7 
+      console.log("s.indexOf('world'):" + s.indexOf('world'));
+
+      s.indexOf('World'); // 没有找到指定的子串，返回-1
+      console.log("s.indexOf('World'):" + s.indexOf('World'));
+
+      s.substring(0, 5); // 从索引0开始到5（不包括5），返回'hello'
+      console.log("s.substring(0, 5):" + s.substring(0, 5));
+
+      s.substring(7); // 从索引7开始到结束，返回'world’
+      console.log("s.substring(7):" + s.substring(7));
+
+      s.split(','); // ['Hello', ' world']      
+      console.log("s.split(','):" + s.split(','));
+
+
+      var x = 19; 
+      console.log("9:" + x); // 19
+      var x = 0x19;
+      console.log("0x19:" + x); // 25
+
+      var y = 123e5; // 12300000
+      console.log("123e5:" + y);
+      var z = 123e-5; // 0.00123
+      console.log("123e-5:" + z);
+
+
+      console.log("Number.MAX_VALUE:" + Number.MAX_VALUE); // 数值的最大值
+      console.log("Number.MIN_VALUE:" + Number.MIN_VALUE); // 数值的最小值
+      console.log("Infinity:" + Infinity); // 无穷大，大于任何数值
+      console.log("-Infinity:" + -Infinity); // 无穷小，小于任何数值
+      console.log("NaN:" + NaN); // 表示Not a Number，当无法计算结果时用NaN表示
+
+      console.log("isNaN(18):" + isNaN(18));// false ，18不是一个非数字
+      console.log("isNaN('Hello'):" + isNaN('Hello')); // true ，"Hello"是一个非数字
+
+    </script>
+  </body>
+</html>

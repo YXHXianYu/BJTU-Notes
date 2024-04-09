@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="scroll.css" />
+  <title>CSS Transform 3d demo - Scroll</title>
+</head>
+<body>
+  
+<div class="stage">
+  <div class="cardList">
+
+    <div class="card">
+      <img src="https://picsum.photos/seed/1/300/150">
+      <h2 class="title">Image Title</h2>
+      <div class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/seed/2/300/150">
+      <h2 class="title">Image Title</h2>
+      <div class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/seed/3/300/150">
+      <h2 class="title">Image Title</h2>
+      <div class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/seed/4/300/150">
+      <h2 class="title">Image Title</h2>
+      <div class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/seed/5/300/150">
+      <h2 class="title">Image Title</h2>
+      <div class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="https://picsum.photos/seed/6/300/150">
+      <h2 class="title">Image Title</h2>
+      <div class="text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip...
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="instruction">← 左右にスクロールできます →</div>
+
+<script>
+  const list = document.querySelector(".cardList");
+
+  const onScroll = () => {
+    const cards = list.querySelectorAll(".card");
+    const listRightPos = list.scrollLeft + list.offsetWidth;
+    cards.forEach(card => {
+      const visibleRatio = Math.max(0, Math.min(1, - (card.offsetLeft - listRightPos) / card.offsetWidth * 0.75));
+      const easedRatio = 1 - (1 - visibleRatio) ** 2;
+      card.style.transform = `
+        translateX(${(1 - easedRatio) * -100}px) 
+        translateZ(${(1 - easedRatio) * 100}px) 
+        rotateY(${(1 - easedRatio) * 60}deg)
+      `;
+    });
+
+    // 最後のカードが見えたら新しいカードを追加
+    const lastCard = cards[cards.length - 1];
+    const isLastCardVisible = lastCard.offsetLeft < list.scrollLeft + list.offsetWidth;
+    if (isLastCardVisible) {
+      const card = lastCard.cloneNode(true);
+      card.getElementsByTagName("img")[0].src = `https://picsum.photos/seed/${cards.length + 1}/300/150`;
+      list.appendChild(card);
+    }
+  }
+  list.addEventListener("scroll", onScroll);
+  onScroll();
+</script>
+
+</body>
+</html>

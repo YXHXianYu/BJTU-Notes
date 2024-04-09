@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="cardform.css" />
+    <title>CSS Transform 3d demo - Card input form</title>
+  </head>
+  <body>
+    <div class="preview">
+      <div class="card">
+        <div class="back">
+          <div class="contents">
+            <div class="sign">Your Sign.</div>
+            <div class="cvc">123</div>
+          </div>
+        </div>
+        <div class="front">
+          <div class="contents">
+            <div class="number">0123 4567 8901 2345</div>
+            <div class="name">YOUR NAME</div>
+            <div class="expire">
+              <span class="expireMM">MM</span>/
+              <span class="expireYY">YY</span>
+            </div>
+            <div class="name"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cardForm">
+      <input type="text" class="number" data-face="front" data-target="number" placeholder="Card Number" />
+      <input type="text" class="expireMM" data-face="front" data-target="expireMM" placeholder="MM" />
+      <span class="separator">/</span>
+      <input type="text" class="expireYY" data-face="front" data-target="expireYY" placeholder="YY" />
+      <input type="text" class="name" data-face="front" data-target="name" placeholder="Holder Name" />
+      <input type="text" class="cvc" data-face="back" data-target="cvc" placeholder="CVC" />
+    </div>
+
+    <script>
+      const FOCUS_CLASS = "focused";
+      const FLIP_CLASS = "fliped";
+      const inps = document.querySelectorAll(".cardForm input");
+      const card = document.querySelector(".preview .card");
+      let lastFocused;
+      /**
+       * @param inp {HTMLInputElement}
+       * @param isInFront {boolean}
+       */
+      const changeFocus = (inp, isInFront) => {
+        console.log(card, inp, isInFront)
+        card.classList[isInFront ? "remove" : "add"](FLIP_CLASS);
+        if (lastFocused) lastFocused.classList.remove(FOCUS_CLASS);
+        const previewEl = card.querySelector("." + inp.dataset.target);
+        previewEl.classList.add(FOCUS_CLASS);
+        lastFocused = previewEl;
+      };
+      inps.forEach((inp) =>
+        inp.addEventListener("focus", () => {
+          changeFocus(inp, inp.dataset.face === "front");
+        })
+      );
+    </script>
+  </body>
+</html>

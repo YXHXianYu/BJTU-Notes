@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+    <link rel="stylesheet" href="./public/css/main1.css" /> <!-- link引入 -->
+    <style> /* 内部样式表 */
+      .text-2 { 
+        color: yellow;
+      }
+    </style>
+    <style>
+      @import url('./public/css/main2.css'); /* @import 引入 */
+    </style>
+  </head>
+  <body>
+    <p class="text-1">被link引入的css影响的文本</p>
+    <p class="text-2">被内部样式表的css影响的文本</p>
+    <p class="text-3">被&#64;import引入css影响的文本</p>
+    <p class="text-4" style="color: green;">被内联部样式表的css影响的文本</p>
+  </body>
+</html>

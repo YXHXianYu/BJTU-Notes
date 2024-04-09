@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+    <style>
+      /* :hover伪类 */
+      .d1:hover { 
+        color: red;
+        background-color: blue;
+      }
+
+      /* :hover伪类 */
+      .d2:focus {
+        color: orange;
+        background-color: green;
+      }
+
+      /* :first-child 伪类 */
+      .d3 li:first-child {
+        color: red;
+      }
+
+      /* :nth-child(n) 伪类 */
+      .d4 li:nth-child(2n) {
+        color: blue;
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <div class="d1"> 鼠标悬浮在我上面，我就会变色</div>
+      <input type="text" class="d2" value="聚焦我"/>
+    </div>
+
+    <ul class="d3">
+      <li>咖啡</li>
+      <li>茶</li>
+      <li>牛奶</li>
+    </ul>
+
+    <ul class="d4">
+      <li>咖啡</li>
+      <li>茶</li>
+      <li>牛奶</li>
+      <li>可乐</li>
+    </ul>
+  </body>
+</html>

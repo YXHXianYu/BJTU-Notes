@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+    <style>
+    /* ::first-line伪元素 */
+    .p1::first-line {
+      color: red;
+    }
+
+    /* ::first-letter伪元素 */
+    .p2::first-letter {
+      color: blue;
+    }
+
+    /* ::before伪元素 */
+    .p3::before {
+      content: "前缀";
+      color: green;
+    }
+
+    /* ::after伪元素 */
+    .p4::after {
+      content: "后缀";
+      color: green;
+    }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <p class="p1">第一行<br />第二行<br />第三行<br /></p>
+    </div>
+
+    <div>
+      <p class="p2">1234</p>
+    </div>
+
+    <div>
+      <p class="p3">1234</p>
+    </div>
+
+    <div>
+      <p class="p4">1234</p>
+    </div>
+  </body>
+</html>

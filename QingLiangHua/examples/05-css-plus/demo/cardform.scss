@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@500&family=La+Belle+Aurore&display=swap');
+
+$easeBounceStart: cubic-bezier(.25,-0.24,.88,.9);
+$easeBounceEnd: cubic-bezier(.11,.11,.59,1.3);
+
+* {
+  box-sizing: border-box;
+}
+
+.preview {
+  margin-bottom: 10px;
+  .card {
+    position: relative;
+    width: 500px;
+    height: 300px;
+    perspective: 700px;
+    font-family: 'Dosis', sans-serif;
+    overflow: hidden;
+    background: rgb(95, 135, 151);
+    border-radius: 4px;
+
+    .front, .back {
+      position: absolute;
+      width: 300px;
+      height: 200px;
+      top: 50px;
+      left: 100px;
+      border-radius: 8px;
+      transition: transform 0.5s, border-width 0.5s;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(16, 33, 37, 0.425);
+      .contents {
+        padding: 20px;
+      }
+    }
+    .front {
+      transform: rotateY(0deg);
+      transition-delay: 0.5s;
+      transition-timing-function: $easeBounceEnd;
+      background-color: rgb(224, 230, 230);
+      &::before {
+        content: "";
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        background-color: rgb(223, 213, 165);
+        left: 20px;
+        top: 10%;
+      }
+      .number {
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        font-size: 22px;
+        text-align: center;
+        letter-spacing: 3px;
+      }
+      .expire {
+        position: absolute;
+        top: 125px;
+        left: 100px;
+        width: 80%;
+        font-size: 16px;
+      }
+      .name {
+        position: absolute;
+        top: 155px;
+        left: 20px;
+        font-size: 18px;
+        letter-spacing: 3px;
+      }
+    }
+    .back {
+      transform: rotateY(90deg);
+      transition-delay: 0s;
+      transition-timing-function: $easeBounceStart;
+      background-color: rgb(235, 241, 241);
+      .contents {
+        transform: scaleX(-1);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 15%;
+        background-color: rgb(82, 90, 94);
+        left: 0;
+        top: 10%;
+      }
+      .sign {
+        position: absolute;
+        width: 80%;
+        height: 40px;
+        background-color: rgb(250, 250, 246);
+        left: 10%;
+        top: 100px;
+        font-family: 'La Belle Aurore', cursive;
+        color :rgb(117, 124, 128);
+        font-size: 24px;
+        &::before {
+          content: "SIGN";
+          position: relative;
+          top: -30px;
+          font-size: 16px;
+          font-family: 'Dosis', sans-serif;
+          color:rgb(82, 90, 94);
+        }
+      }
+      .cvc {
+        position: absolute;
+        height: 40px;
+        width: 80px;
+        right: 10%;
+        top: 100px;
+        padding: 8px;
+        text-align: right;  
+      }
+  }
+    &.fliped {
+      .front {
+        transform: rotateY(90deg);
+        transition-delay: 0s;
+        transition-timing-function: $easeBounceStart;
+      }
+      .back {
+        transform: rotateY(180deg);
+        transition-delay: 0.5s;
+        transition-timing-function: $easeBounceEnd;
+      } 
+    }
+
+    .number, .name, .expireMM, .expireYY, .cvc {
+      font-size: 18px;
+      padding: 4px 12px;
+      border-radius: 4px;
+      color: rgb(82, 90, 94);
+      &.focused {
+        background-color: rgba(255, 250, 203, 0.575);
+        text-decoration: underline;
+      }
+      }
+  }
+}
+
+.cardForm {
+  display: grid;
+  grid-template-columns: 1fr 20px 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "number number number" "mm sep yy" "name name name" "cvc cvc cvc";
+  gap: 4px;
+  width: 500px;
+  > * {
+    border: 1px solid #ccc;
+    display: block;
+    font-family: 'Dosis', sans-serif;
+    font-size: 18px;
+    line-height: 32px;
+    padding: 4px 8px;
+  }
+  .number {
+    grid-area: number;
+    letter-spacing: 4px;
+  }
+  .name {
+    grid-area: name;
+  }
+  .expireMM {
+    grid-area: mm;
+    letter-spacing: 4px;
+  }
+  .separator {
+    grid-area: sep;
+    color: gray;
+    border: none;
+  }
+  .expireYY {
+    grid-area: yy;
+    letter-spacing: 4px;
+  }
+  .cvc {
+    grid-area: cvc;
+    letter-spacing: 4px;
+  }
+}
+

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>transform</title>
+    <style>
+      .app {
+        display: flex;
+        width: 630px;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .parent {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ddd;
+      }
+      .child {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 50px;
+        left: 50px;
+        box-sizing: border-box;
+        border: 1px solid #888; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .origin {
+        background-color: rgb(229, 86, 101);
+      }
+      .transform {
+        background-color: rgb(114, 188, 171);
+        opacity: 0.8;
+      }
+
+      .cube > .side {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 100px;
+        height: 100px;
+        opacity: 1.0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: aliceblue;
+        font-size: 30px;
+      }
+      .cube > .side:nth-child(1) {
+        background: rgb(229, 86, 101);
+        transform: translateZ(50px);
+        background-image: url('https://github.com/YXHXianYu/BJTU-Game-Engine/blob/main/engine/asset/textures/container.jpg?raw=true');
+      }
+      .cube > .side:nth-child(2) {
+        background: rgb(227, 227, 149);
+        transform: translateX(-50px) rotateY(-90deg);
+      }
+      .cube > .side:nth-child(3) {
+        background: rgb(122, 165, 215);
+        transform: translateX(50px) rotateY(90deg);
+      }
+      .cube > .side:nth-child(4) {
+          background: rgb(114, 188, 171);
+          transform: translateZ(-50px) rotateY(180deg);
+      }
+      .cube > .side:nth-child(5) {
+          background: rgb(216, 171, 209);
+          transform: translateY(-50px) rotateX(90deg);
+      }
+      .cube > .side:nth-child(6) {
+          background: rgb(231, 214, 190);
+          transform:  translateY(50px) rotateX(-90deg);
+      }
+  
+      .d1 {
+        perspective: 500px;
+      }
+      .d1 > .transform {
+        transform: translateZ(100px);
+      }
+      .d2 {
+        perspective: 300px;
+      }
+      .d2 > .transform {
+        transform: translateZ(100px);
+      }
+      .d3 {
+        perspective: 500px;
+      }
+      .d3 > .transform {
+        transform: translate3d(70px, 50px, 100px);
+      }
+
+      .d4 {
+        perspective: 500px;
+      }
+      .d4 > .transform {
+        transform: rotateX(50deg) scaleZ(1.5);
+      }
+      .d5 {
+        perspective: 500px;
+      }
+      .d5 > .transform {
+        transform: rotateX(50deg) scale3d(1.2,2,3);
+      }
+
+      .d6 > .transform {
+        transform: rotateX(50deg);
+      } 
+      .d7 > .transform {
+        transform: rotateY(50deg);
+      }
+      .d8 > .transform {
+        transform: rotateZ(50deg);
+      }
+
+      .d9 > .transform {
+        transform: rotate3d(1,0,0,50deg); 
+      }
+      .d10 > .transform {
+        transform: rotate3d(1,1,0,50deg); 
+      }
+      .d11 > .transform {
+        transform: rotate3d(1,1,1,50deg); 
+      }
+
+      .d12 {
+        perspective: 500px;
+      }
+      .d12 > .transform {
+        transform: translateZ(100px);
+      }
+      .d13 {
+        perspective: 500px;
+        perspective-origin: top left;
+      }
+      .d13 > .transform {
+        transform: translateZ(100px);
+      }
+      .d14 {
+        perspective: 500px;
+        perspective-origin: bottom right;
+      }
+      .d14 > .transform {
+        transform: translateZ(100px);
+      }
+
+      .d15 {
+        perspective: 300px;
+      }
+      .d16 {
+        perspective: 300px;
+        perspective-origin: top left;
+      }
+      .d17 {
+        perspective: 300px;
+        perspective-origin: bottom right;
+      }
+
+      .d18 > .transform {
+        transform: rotateX(45deg)
+      }
+      .d19 {
+        transform: rotateY(45deg);
+        transform-style: flat;
+      }
+      .d19 > .transform {
+        transform: rotateX(45deg)
+      }
+      .d20 {
+        transform: rotateY(45deg);
+        transform-style:preserve-3d;
+      }
+      .d20 > .transform {
+        transform: rotateX(45deg)
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="parent d1">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d2">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d3">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+
+      <div class="parent d4">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d5">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <br />
+
+      <div class="parent d6">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d7">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d8">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+
+      <div class="parent d9">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d10">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d11">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+
+      <div class="parent d12">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d13">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d14">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+
+      <div class="parent cube d15">
+          <div class="side" style="z-index: 1;">front </div>
+          <div class="side" >left </div>
+          <div class="side">right </div>
+          <div class="side">back </div>
+          <div class="side">top </div>
+          <div class="side">bottom </div>
+      </div>
+      <div class="parent cube d16">
+        <div class="side" style="z-index: 1;">front </div>
+        <div class="side" style="z-index: 1;">left </div>
+        <div class="side">right </div>
+        <div class="side">back </div>
+        <div class="side">top </div>
+        <div class="side">bottom </div>
+      </div>
+      <div class="parent cube d17">
+        <div class="side" style="z-index: 2;">front </div>
+        <div class="side" style="z-index: 1;">left </div>
+        <div class="side">right </div>
+        <div class="side">back </div>
+        <div class="side">top </div>
+        <div class="side">bottom </div>
+      </div>
+
+      <div class="parent d18">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d19">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d20">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+
+    </div>
+  </body>
+</html>

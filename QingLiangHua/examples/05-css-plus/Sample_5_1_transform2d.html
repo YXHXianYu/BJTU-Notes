@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>transform</title>
+    <style>
+      .app {
+        display: flex;
+        width: 630px;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .parent {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ddd;
+      }
+      .child {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 50px;
+        left: 50px;
+        box-sizing: border-box;
+        border: 1px solid #888; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .origin {
+        background-color: rgb(229, 86, 101);
+      }
+      .transform {
+        background-color: rgb(114, 188, 171);
+        opacity: 0.8;
+      }
+
+      .d1 > .transform {
+        transform: translate(50px, 25px);
+      }
+      .d2 > .transform {
+        transform: translateX(50px);
+      }
+      .d3 > .transform {
+        transform: translateY(25px);
+      }
+
+      .d4 > .transform {
+        transform: rotate(20deg);
+      }
+      .d5 > .transform {
+        transform: rotate(-20deg);
+      }
+
+      .d6 > .transform {
+        transform: scale(1.5, 2);
+      }
+      .d7 > .transform {
+        transform: scaleX(2);
+      }
+      .d8 > .transform {
+        transform: scaleY(1.5);
+      }
+
+      .d9 > .transform {
+        transform: skew(20deg, 10deg);
+      }
+      .d10 > .transform {
+        transform: skewX(20deg);
+      }
+      .d11 > .transform {
+        transform: skewY(10deg);
+      }
+
+      .d12 > .transform {
+        transform: matrix(1, 0, 0, 1, 50, 25);
+      }
+      .d13 > .transform {
+        transform: matrix(1.5, 0, 0, 2, 0, 0);
+      }
+      .d14 > .transform {
+        transform: matrix(1, 0.176, 0.364, 1, 0, 0);
+      } 
+      /* Math.tan(10 * Math.PI / 180); */
+      /* Math.tan(20 * Math.PI / 180); */
+
+      .d15 > .origin::before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid red;
+        z-index: 1;
+        top: calc(50% - 5px);
+        left: calc(50% - 5px);
+      }
+      .d15 > .transform {
+        transform-origin: center;
+        transform: rotate(20deg)
+      }
+
+      .d16 > .origin::before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid red;
+        z-index: 1;
+        top: calc(0px - 5px);
+        left: calc(0px - 5px);
+      }
+      .d16 > .transform {
+        transform-origin: top left;
+        transform: rotate(20deg)
+      }
+
+      .d17 > .origin::before {
+        content: "";
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        border: 1px solid red;
+        z-index: 1;
+        top: calc(20px - 5px);
+        left: calc(20px - 5px);
+      }
+      .d17 > .transform {
+        transform-origin: 20px 20px;
+        transform: rotate(20deg)
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="parent d1">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d2">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d3">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+
+      <div class="parent d4">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d5">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <br />
+
+      <div class="parent d6">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d7">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d8">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+
+      <div class="parent d9">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d10">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d11">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+
+      <div class="parent d12">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d13">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d14">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+
+      <div class="parent d15">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d16">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+      <div class="parent d17">
+        <div class="child origin">origin</div>
+        <div class="child transform">transform</div>
+      </div>
+    </div>
+  </body>
+</html>

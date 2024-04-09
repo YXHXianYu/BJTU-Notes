@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+    <style>
+      p {
+        background-color: red;
+        background-color: yellow;
+        background-color: blue;
+        /* 背景色设置为透明 */
+        background-color: transparent;
+      }
+
+      p {
+        /* 背景为红色 */
+        background-color: rgb(255, 0, 0);
+        /* 背景色为白色 */
+        background-color: rgb(255, 255, 255);
+        /* 背景色为黑色 */
+        background-color: rgb(0, 0, 0);
+        /* 背景为黑色，透明度为0.1 */
+        background-color: rgba(0, 0, 0, 0.1);
+      }
+
+      p {
+        /* 背景为红色 */
+        background-color: #ff0000;
+        /* 背景为红色, 上面写法的简写 */
+        background-color: #f00;
+        /* 背景为白色 */
+        background-color: #ffffff;
+        /* 背景为白色, 上面写法的简写 */
+        background-color: #fff;
+        /* 背景为黑色，透明度为0.9 */
+        background-color: #00000019;
+      }
+
+      p {
+        /* 背景色为绿色 */
+        background-color: hsl(120, 100%, 50%);
+        /* 背景色为绿色，透明度为 0.5 */
+        background-color: hsl(120, 100%, 50%, 0.5);
+      }
+      .h1 {
+        color: rgba(0, 0, 0, 0.9);
+      }
+      .h2 {
+        color: #00000019;
+      }
+      .h3 {
+        color: #000000e5;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="h1">rgba() 透明度0.9</h1>
+    <h1 class="h3">#RRGGBB(AA) 透明度0.1</h1>
+    <h1 class="h2">#RRGGBB(AA) 透明度0.9</h1>
+  </body>
+</html>

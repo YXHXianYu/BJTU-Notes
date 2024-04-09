@@ -28,3 +28,38 @@
 * Shell
 * Shell Usage
 * Variables
+
+* Takeaways
+  * Using **rm** carefully
+  * Environment Variables;
+
+* Commands
+  * etc..
+  * Output redirection
+    * `cat a.txt > b.txt`: overwrite
+    * `cat a.txt >> b.txt`: append
+  * Error redirection
+    * `./bin 2> log.txt`
+  * Input redirection
+    * 
+  * Merge 2 streams
+    * `command 2>&1 | ...`: merge stdout and stderr
+  * Split to 2 streams
+    * `command | tee file1 file2`
+
+* File Structure  
+
+* File Authority & Links
+
+* Job control
+  * `ps aux`, `htop`, etc..
+  * `ctrl + c`: interrupt
+  * `ctrl + d`: EOF
+  * `ctrl + z`: suspend
+  * use `&` in the end of command: run in background
+  * `nohup ... > log &`: suspend a process to background
+
+* Pipe
+
+
+

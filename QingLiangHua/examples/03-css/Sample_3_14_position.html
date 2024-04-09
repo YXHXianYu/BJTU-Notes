@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+    <style>
+      .child-1 {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        background-color: #b46868;
+      }
+      .child-2 {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
+        background-color: #68b47c;
+      }
+      .child-3 {
+        position: fixed;
+        top: 20px;
+        left: 70px;
+        width: 50px;
+        height: 50px;
+        background-color: #8368b4;
+      }
+      .child-4 {
+        position: sticky;
+        top: 20px;
+        left: 170px;
+        width: 50px;
+        height: 50px;
+        background-color: #b468b3;
+      }
+
+      .d1 {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        border: 1px solid #000;
+        display: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d2" style="height: 100px; width: 1px;"></div>
+    <div class="d1">  
+      <div class="child-1">1</div>
+      <div class="child-2">2</div>
+      <div class="child-3">3</div>
+      <div class="child-4">4</div>
+    </div>
+
+    <div class="d2" style="height: 3000px; width: 1px;"></div>
+    
+  </body>
+</html>

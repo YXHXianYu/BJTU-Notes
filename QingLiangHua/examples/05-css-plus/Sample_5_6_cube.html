@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>transform</title>
+    <style>
+      .app {
+        display: flex;
+        width: 630px;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .parent {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ddd;
+      }
+      .child {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 50px;
+        left: 50px;
+        box-sizing: border-box;
+        border: 1px solid #888; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .cube > .side {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        width: 100px;
+        height: 100px;
+        opacity: 1.0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: aliceblue;
+        font-size: 30px;
+      }
+      .cube > .side:nth-child(1) {
+        background: rgb(229, 86, 101);
+        transform: translateZ(50px);
+      }
+      .cube > .side:nth-child(2) {
+        background: rgb(227, 227, 149);
+        transform: translateX(-50px) rotateY(-90deg);
+      }
+      .cube > .side:nth-child(3) {
+        background: rgb(122, 165, 215);
+        transform: translateX(50px) rotateY(90deg);
+      }
+      .cube > .side:nth-child(4) {
+        background: rgb(114, 188, 171);
+        transform: translateZ(-50px) rotateY(180deg);
+      }
+      .cube > .side:nth-child(5) {
+        background: rgb(216, 171, 209);
+        transform: translateY(-50px) rotateX(90deg);
+      }
+      .cube > .side:nth-child(6) {
+        background: rgb(231, 214, 190);
+        transform:  translateY(50px) rotateX(-90deg);
+      }
+  
+
+      .d1 {
+        perspective-origin: top left;
+        animation: ani1 2s infinite alternate;
+      }
+      @keyframes ani1 {
+        0% {
+          perspective-origin: -50% -50%;
+          perspective: 500px;
+        }
+        100% {
+          perspective-origin: 20% 20%;
+          perspective: 200px;
+        }
+      }
+
+      .d2 {
+        perspective: 500px;
+        perspective-origin: top;
+        transform-style: preserve-3d;
+        animation: ani2 4s infinite linear;
+      }
+      .d2>.cube {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        transform-style: preserve-3d;
+      }
+      @keyframes ani2 {
+        0% {
+          perspective-origin: -50% -50%;
+        }
+        25% {
+          perspective-origin: 150% -50%;
+        }
+        50% {
+          perspective-origin: 150% 150%;
+        }
+        75% {
+          perspective-origin: -50% 150%;
+        }
+        100% {
+          perspective-origin: -50% -50%;
+        }
+      }
+
+
+      .d3 {
+        perspective: 400px;
+        perspective-origin: top;
+        transform-style: preserve-3d;
+      }
+      .d3>.cube {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        transform-style: preserve-3d;
+        animation: ani3 4s infinite linear;
+      }
+      @keyframes ani3 {
+        0% {
+          transform: rotateY(0deg) rotateX(0deg);
+        }
+        50% {
+          transform: rotateY(180deg) rotateX(180deg);
+        }
+        100% {
+          transform: rotateY(360deg) rotateX(360deg);
+        }
+      }
+
+
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="parent cube d1">
+          <div class="side" style="z-index: 1;">front </div>
+          <div class="side" >left </div>
+          <div class="side">right </div>
+          <div class="side">back </div>
+          <div class="side">top </div>
+          <div class="side">bottom </div>
+      </div>
+      <div class="parent cube d2">
+        <div class="cube">
+          <div class="side" style="z-index: 1;">front </div>
+          <div class="side" style="z-index: 1;">left </div>
+          <div class="side">right </div>
+          <div class="side">back </div>
+          <div class="side">top </div>
+          <div class="side">bottom </div>
+        </div>    
+      </div>
+      <div class="parent d3">
+        <div class="cube">
+          <div class="side" style="z-index: 1;">front </div>
+          <div class="side" style="z-index: 1;">left </div>
+          <div class="side">right </div>
+          <div class="side">back </div>
+          <div class="side">top </div>
+          <div class="side">bottom </div>
+        </div>     
+      </div>
+
+
+    </div>
+  </body>
+</html>

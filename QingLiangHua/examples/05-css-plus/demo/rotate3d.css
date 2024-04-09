@@ -1,0 +1,46 @@
+* {
+  box-sizing: border-box;
+}
+
+.stage {
+  width: 700px;
+  height: 700px;
+  border: 1px solid #aaa;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 400px;
+  height: 400px;
+  border-radius: 4px;
+  border: 1px solid rgb(105, 122, 138);
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+}
+.card > img {
+  width: 100%;
+  background-color: rgb(181, 196, 209);
+}
+.card .title {
+  padding: 2px 8px;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(60, 69, 78);
+}
+.card .text {
+  padding: 2px 8px 8px 8px;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.code {
+  white-space: pre;
+  width: 700px;
+  background-color: #eee;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}

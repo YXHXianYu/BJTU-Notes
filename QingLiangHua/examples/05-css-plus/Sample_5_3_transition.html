@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>transform</title>
+    <style>
+      .app {
+        display: flex;
+        width: 630px;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .parent {
+        position: relative;
+        width: 200px;
+        height: 200px;
+        border: 1px solid #ddd;
+      }
+      .parent > label {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        bottom: 5px;
+      }
+
+      .child {
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        top: 50px;
+        left: 50px;
+        box-sizing: border-box;
+        border: 1px solid #888; 
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .d1>.child {
+        width:100px;
+        height:100px;
+        background:rgb(255, 120, 120);
+        font-size: 20px;
+        transition: width 2s,font-size 2s;
+      }
+      .d1>.child:hover
+      {
+        width: 150px;
+        font-size: 30px;
+      }
+
+      .d2>.child {
+        background:rgb(255, 120, 120);
+        font-size: 20px;
+        transition-property: width, font-size;
+        transition-duration: 2s, 2s;
+      }
+      .d2>.child:hover
+      {
+        width: 150px;
+        font-size: 30px;
+      }
+
+      .d3>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 1s;
+      }
+      .d3>.child:hover
+      {
+        width: 150px;
+      }
+
+      .d4>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 3s;
+      }
+      .d4>.child:hover
+      {
+        width: 150px;
+      }
+
+      .d5>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 2s;
+      }
+      .d5>.child:hover
+      {
+        width: 150px;
+      }
+      .d6>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 2s;
+        transition-delay: 1s;
+      }
+      .d6>.child:hover
+      {
+        width: 150px;
+      }
+      .d7>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 2s;
+        transition-delay: -1s;
+      }
+      .d7>.child:hover
+      {
+        width: 150px;
+      }
+
+      .d8>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: ease;
+      }
+      .d8>.child:hover
+      {
+        width: 200px;
+      }
+
+      .d9>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: ease-in;
+      }
+      .d9>.child:hover
+      {
+        width: 200px;
+      }
+
+      .d10>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: ease-out;
+      }
+      .d10>.child:hover
+      {
+        width: 200px;
+      }
+
+      .d11>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: ease-in-out;
+      }
+      .d11>.child:hover
+      {
+        width: 200px;
+      }
+
+      .d12>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: linear;
+      }
+      .d12>.child:hover
+      {
+        width: 200px;
+      }
+
+      .d13>.child {
+        background:rgb(255, 120, 120);
+        transition-property: width;
+        transition-duration: 2s;
+        transition-timing-function: cubic-bezier(0, 0.5, 1, 0.5);
+      }
+      .d13>.child:hover
+      {
+        width: 200px;
+      }
+
+      .d14>.box {
+        position: relative;
+        margin: 0px auto;
+        width: 100px;
+        height: 100px;
+        background-color: pink;
+      }
+      .d14>.box::after {
+        content: '★';
+        color: rgba(255, 255, 255, 0.8);
+        width: inherit;
+        height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .d14>.box:hover {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+        border-radius: 50%;
+      }
+      .d14>.box:hover::after {
+        content: '♥';
+        font-size: 100px;
+      }
+      .d14>.box::after {
+        transition-duration: 1s;
+        transition-property: font-size;
+      }
+      .d14>.box {
+        transition-duration: 1s;
+        transition-property: width, height, background-color, border-radius;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app">
+      <div class="parent d1">
+        <div class="child">Hover Me</div>
+        <label>transition</label>
+      </div>
+      <div class="parent d2">
+        <div class="child">Hover Me</div>
+        <label>transition</label>
+      </div>
+      <br />
+
+      <div class="parent d3">
+        <div class="child">Hover Me</div>
+        <label>transition-duration: 1s;</label>
+      </div>
+      <div class="parent d4">
+        <div class="child">Hover Me</div>
+        <label>transition-duration: 3s;</label>
+      </div>
+      <br />
+
+      <div class="parent d5">
+        <div class="child">Hover Me</div>
+        <label>transition-delay: 0s;</label>
+      </div>
+      <div class="parent d6">
+        <div class="child">Hover Me</div>
+        <label>transition-delay: 1s;</label>
+      </div>
+      <div class="parent d7">
+        <div class="child">Hover Me</div>
+        <label>transition-delay: -1s;</label>
+      </div>
+
+      <div class="parent d8">
+        <div class="child">Hover Me</div>
+        <label>transition-timing-function: ease;</label>
+      </div>
+      <div class="parent d9">
+        <div class="child">Hover Me</div>
+        <label>transition-timing-function: ease-in;</label>
+      </div>
+      <div class="parent d10">
+        <div class="child">Hover Me</div>
+        <label>transition-timing-function: ease-out;</label>
+      </div>
+      <div class="parent d11">
+        <div class="child">Hover Me</div>
+        <label>transition-timing-function: ease-in-out;</label>
+      </div>
+      <div class="parent d12">
+        <div class="child">Hover Me</div>
+        <label>transition-timing-function: linear;</label>
+      </div>
+      <div class="parent d13">
+        <div class="child">Hover Me</div>
+        <label>transition-timing-function: cubic-bezier;</label>
+      </div>
+
+      <div class="parent d14">
+        <div class="box"></div>
+      </div>
+    </div>
+  </body>
+</html>

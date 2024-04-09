@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>media query</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      /* 复杂规则 */
+      /* 组合媒体类型媒体特性 */
+      @media screen and (min-width: 400px) {
+        body {
+          background-color: pink;
+        }
+      }
+      /* 逻辑与 */
+      @media screen and (min-width: 400px) and (orientation: landscape) {
+        body {
+          background-color: yellow;
+        }
+      }
+      /* 逻辑或 */
+      @media screen and (min-width: 600px), screen and (orientation: landscape) {
+        body {
+          background-color: skyblue;
+        }
+      }
+
+      /* 逻辑非 */
+      @media not screen and (min-width: 600px) {
+        body {
+          background-color: green;
+        }
+      }
+
+      @media not screen and (min-width: 600px), print and (color) {
+        body {
+          background-color: green;
+        }
+      }
+
+      @media not screen and (min-width: 600px) and (max-width: 800px) {
+        body {
+          background-color: black;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    这不是段落
+    <p>这是段落</p>
+  </body>
+</html>

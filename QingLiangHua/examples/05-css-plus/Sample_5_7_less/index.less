@@ -1,0 +1,59 @@
+/* https://www.lesstester.com/ */
+
+@width: 10px;
+@height: @width + 10px;
+
+// 变量
+#header {
+  width: @width;
+  height: @height;
+}
+
+// 混合
+.bordered {
+  border-top: dotted 1px black;
+  border-bottom: solid 2px black;
+}
+
+#menu a {
+  color: #111;
+  .bordered();
+}
+
+.post a {
+  color: red;
+  .bordered();
+}
+
+// 嵌套
+#header {
+  color: black;
+  .navigation {
+    font-size: 12px;
+  }
+  .logo {
+    width: 300px;
+  }
+
+  &:hover {
+    background-color: pink;
+  }
+}
+
+
+// 运算
+@conversion-1: 5cm + 10mm;
+@conversion-2: 2 - 3cm - 5mm;
+@incompatible-units: 3 + 5px - 3cm;
+@base: 5%;
+@filler: @base * 2; // 结果是 10%
+@other: @base + @filler; // 结果是 15%
+
+body{
+  --conversion-1: @conversion-1;
+  --conversion-2: @conversion-2;
+  --incompatible-units: @incompatible-units;
+  --base: @base;
+  --filler: @filler;
+  --other: @other;
+}

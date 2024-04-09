@@ -75,5 +75,12 @@
 
 ## 3. Devices
 
+## 4. Rasterization
+
+* Viewport Transform
+
+* Sampling
+
+
 
 

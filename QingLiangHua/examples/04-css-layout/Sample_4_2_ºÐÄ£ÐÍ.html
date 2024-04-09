@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+    <style>
+
+      .parent {
+        width: 220px;
+        height: 200px;
+        border: solid 10px #ffc129;
+        margin: .8em
+      }
+
+      .child {
+        height: 60px;
+        margin: 2em auto;
+        background-color: rgba(81, 81, 81, .6);
+      }
+
+      .child-1 {
+        box-sizing: content-box;
+        width: 100%;
+      }
+
+      .child-2 {
+        box-sizing: content-box;
+        width: 100%;
+        border: solid #5B6DCD 10px;
+        padding: 5px;
+      }
+
+      .child-3 {
+        box-sizing: border-box;
+        width: 100%;
+        border: solid #5B6DCD 10px;
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div class="parent"> 
+      parent container 
+      <div class="child child-1">child container</div>
+    </div>
+
+    <div class="parent"> 
+      parent container 
+      <div class="child child-2">child container</div>
+    </div>
+
+    <div class="parent"> 
+      parent container 
+      <div class="child child-3">child container</div>
+    </div>
+    
+  </body>
+</html>

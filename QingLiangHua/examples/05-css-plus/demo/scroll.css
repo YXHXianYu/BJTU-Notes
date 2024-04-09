@@ -1,0 +1,58 @@
+* {
+  box-sizing: border-box;
+}
+
+.stage {
+  width: 700px;
+  border: 1px solid #aaa;
+  overflow: hidden;
+}
+
+.instruction {
+  width: 700px;
+  color: #aaa;
+  font-weight: bold;
+  text-align: center;
+}
+
+.cardList {
+  width: 100%;
+  white-space: nowrap;
+  padding: 40px;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  perspective: 700px;
+}
+.cardList > .card {
+  display: inline-block;
+  margin-right: 10px;
+  width: 200px;
+  white-space: normal;
+  transform-origin: right center;
+}
+.cardList > .card img {
+  min-height: 150px;
+}
+
+.card {
+  border-radius: 4px;
+  border: 1px solid rgb(105, 122, 138);
+  overflow: hidden;
+  background-color: white;
+  position: relative;
+}
+.card > img {
+  width: 100%;
+  background-color: rgb(181, 196, 209);
+}
+.card .title {
+  padding: 2px 8px;
+  font-weight: bold;
+  font-size: 20px;
+  color: rgb(60, 69, 78);
+}
+.card .text {
+  padding: 2px 8px 8px 8px;
+  font-size: 12px;
+  line-height: 16px;
+}

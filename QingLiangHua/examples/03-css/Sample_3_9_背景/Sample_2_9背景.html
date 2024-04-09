@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>标题</title>
+    <style>
+      .d1 {
+        background-color: #ff0000;
+        width: 500px;
+      }
+
+      .d2 {
+        /* background-image: url(./images/bg.gif); */
+        width: 1280px;
+        height: 353px;
+        /* background-repeat: repeat-x; */
+        /* background-repeat: repeat-y; */
+        /* background-repeat: no-repeat;
+        background-position: center;
+        background-attachment: fixed; */
+        background: url(./images/bg.gif) no-repeat center fixed;
+      }
+
+      .d3 {
+        width: 300px;
+        height: 200px;
+        background: linear-gradient(skyblue, pink);
+      }
+      .d4 {
+        width: 300px;
+        height: 200px;
+        /* background: linear-gradient(to right, skyblue, pink); */
+        background: linear-gradient(60deg, skyblue, pink);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="d1">
+      <p>Text</p>
+      <p>Text</p>
+      <p>Text</p>
+    </div>
+
+    <div class="d2">
+      <p>Text</p>
+      <p>Text</p>
+      <p>Text</p>
+    </div>
+
+    <div class="d3">渐变</div>
+    <div class="d4">渐变角度</div>
+  </body>
+</html>
